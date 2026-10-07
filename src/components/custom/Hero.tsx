@@ -129,7 +129,6 @@ const keyur = new Developer(
     });
 
     // CODE Snippet Animation
-
     // get the current index
     let currentIndex = 0;
 
