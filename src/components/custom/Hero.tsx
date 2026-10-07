@@ -200,7 +200,7 @@ const keyur = new Developer(
   }, []);
 
   return (
-    <section className="mt-20 px-3 py-1 font-mono  h-100  w-full">
+    <section className="mt-20 py-1 font-mono  h-100  w-full">
       <div className="max-w-8xl w-full mx-auto grid  lg:grid-cols-[1fr_0.6fr]">
         <div className="w-full ">
           {/* Hero Introduction */}
@@ -210,11 +210,14 @@ const keyur = new Developer(
             className="flex gap-2 text-[16px] text-[#00D4FF]"
           ></div>
 
-          <div ref={nameRef} className="text-9xl font-bold mt-4">
+          <div
+            ref={nameRef}
+            className="text-6xl sm:text-7xl lg:text-8xl font-bold mt-4"
+          >
             {/* <h1>Keyur</h1> */}
           </div>
 
-          <div className="mt-5 text-2xl text-[#4C586A] font-medium ">
+          <div className="mt-5 sm:text-2xl text-xl text-[#4C586A] font-medium ">
             <span ref={roleRef}></span>
             {/* <span className="ml-1 animate-pulse text-[#00D4FF]">
             |
@@ -231,7 +234,10 @@ const keyur = new Developer(
             </p>
           </div>
 
-          <div id="buttons" className="mt-8 opacity-0">
+          <div
+            id="buttons"
+            className="mt-8 opacity-0 w-full flex flex-col sm:flex-row gap-3"
+          >
             <Button
               className={` px-8 py-6 bg-[#00D4FF] text-black rounded-none  cursor-pointer hover:bg-[#00D4FF] hover:shadow-[0_0_20px_#00D4FF]    transition-shadow duration-300
 `}
@@ -243,7 +249,7 @@ const keyur = new Developer(
             </Button>
 
             <Button
-              className={`ml-5  px-8 py-6 border-white rounded-none  text-white bg-[#0A0A10] hover:bg-[#0A0A10] cursor-pointer`}
+              className={`  px-8 py-6 border-white rounded-none  text-white bg-[#0A0A10] hover:bg-[#0A0A10] cursor-pointer`}
             >
               Get In Touch
             </Button>
@@ -253,7 +259,7 @@ const keyur = new Developer(
         {/* CodeSnippet Component */}
         <div
           id="laptop"
-          className="hidden  lg:flex  h-85 p-3 lg:flex-col lg:justify-between opacity-0"
+          className="mt-10  lg:flex  h-85 py-3 lg:flex-col lg:justify-between opacity-0"
         >
           <div className="lg:w-[97%] xl:w-[90%] h-88 mx-auto bg-slate-800  flex flex-col gap-3 border border-white">
             <div className="h-3.75 px-1 border-b border-slate-100 flex items-center justify-between">
