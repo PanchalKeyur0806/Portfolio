@@ -27,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="px-5 min-h-full flex flex-col bg-[#0A0A10] text-white">
+      <body className="px-5 min-h-full bg-[#0A0A10] text-white">
         {children}
       </body>
     </html>

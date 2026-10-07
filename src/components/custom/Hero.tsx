@@ -1,17 +1,16 @@
-"use client"
+"use client";
 import { useEffect, useRef } from "react";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 import gsap from "gsap";
 
 const Hero = () => {
-  const heroIntroRef = useRef<HTMLDivElement>(null)
+  const heroIntroRef = useRef<HTMLDivElement>(null);
   const nameRef = useRef<HTMLHeadingElement>(null);
   const roleRef = useRef<HTMLSpanElement>(null);
-  const descriptionRef = useRef<HTMLParagraphElement>(null)
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
 
   const codeRef = useRef<HTMLPreElement>(null);
-
 
   const codeSnippets = [
     // Object
@@ -46,38 +45,32 @@ const keyur = new Developer(
 );`,
   ];
 
-
-
-
-
-
   useEffect(() => {
     // get all the elements
-    const heroIntro = heroIntroRef.current
+    const heroIntro = heroIntroRef.current;
     const role = roleRef.current;
     const name = nameRef.current;
-    const description = descriptionRef.current
+    const description = descriptionRef.current;
 
     // get code snippet element
-    const codeSnippet = codeRef.current
-    if (!codeSnippet) return
+    const codeSnippet = codeRef.current;
+    if (!codeSnippet) return;
 
     // check if all the elements are present
-    if (!heroIntro || !name || !role || !description) return
+    if (!heroIntro || !name || !role || !description) return;
 
     // Text For displaying
-    const heroIntroText: string = "HI, I'M"
-    const nameText: string = "Keyur"
+    const heroIntroText: string = "HI, I'M";
+    const nameText: string = "Keyur";
     const roleText: string = "Full-Stack Developer";
     const obj = { count: 0 };
 
     gsap.set("#laptop", {
-      x: 40
-    })
+      x: 40,
+    });
 
-    // create a timeline 
-    const t1 = gsap.timeline()
-
+    // create a timeline
+    const t1 = gsap.timeline();
 
     // hero intro text typing animation
     t1.to(obj, {
@@ -85,26 +78,25 @@ const keyur = new Developer(
       ease: "none",
       onUpdate: () => {
         if (heroIntro) {
-          heroIntro.textContent = heroIntroText.slice(0, Math.floor(obj.count))
+          heroIntro.textContent = heroIntroText.slice(0, Math.floor(obj.count));
         }
-      }
-    })
+      },
+    });
 
     // name typing animation
-    t1.set(obj, { count: 0 })
+    t1.set(obj, { count: 0 });
     t1.to(obj, {
       count: nameText.length,
       ease: "none",
       onUpdate: () => {
         if (name) {
-          name.textContent = nameText.slice(0, Math.floor(obj.count))
+          name.textContent = nameText.slice(0, Math.floor(obj.count));
         }
-      }
-    })
-
+      },
+    });
 
     // role typing animation
-    t1.set(obj, { count: 0 })
+    t1.set(obj, { count: 0 });
     t1.to(obj, {
       count: roleText.length,
       ease: "none",
@@ -119,78 +111,43 @@ const keyur = new Developer(
     t1.to(description, {
       x: 0,
       opacity: 1,
-      ease: "power3.in"
-    })
+      ease: "power3.in",
+    });
 
     // buttons animations
     t1.to("#buttons", {
       x: 0,
       opacity: 1,
-      ease: "power3.in"
-    })
-
+      ease: "power3.in",
+    });
 
     // animate code snippet
-    gsap.to("#laptop", {
+    t1.to("#laptop", {
       x: 0,
       opacity: 1,
-      ease: "back.in"
-    })
-
-    // Maybe i need to add this later
-    // t1.fromTo("#hero-intro", {
-    //   x: -30,
-    //   opacity: 0,
-    //   duration: 0.6,
-    //   ease: "power3.out"
-    // }, {
-    //   x: 0,
-    //   opacity: 1,
-    //   duration: 1,
-    //   ease: "power3.in"
-    // }).from(name, {
-    //   y: 40,
-    //   opacity: 0,
-    //   duration: 0.8,
-    //   // delay: 0.5,
-    //   ease: "power3.out"
-    // }).to(role, {
-    //   count: roleText.length,
-    //   duration: 1.8,
-    //   ease: "none",
-    //   onUpdate: () => {
-    //     if (role) {
-    //       role.textContent = roleText.slice(0, Math.floor(obj.count));
-    //     }
-    //   },
-    // }).from(description, {
-    //   y: 20,
-    //   opacity: 0,
-    //   duration: 0.7,
-    //   ease: "power3.out",
-    // });
-
+      ease: "back.in",
+    });
 
     // CODE Snippet Animation
 
     // get the current index
-    let currentIndex = 0
+    let currentIndex = 0;
 
     // function for incrementing the code snippet
     const typeNext = () => {
       // get current code
-      const text = codeSnippets[currentIndex]
+      const text = codeSnippets[currentIndex];
 
       // create timeline
       const timeline = gsap.timeline({
         onComplete: () => {
-          currentIndex = currentIndex + 1 % codeSnippets.length
-          typeNext()
-        }
-      })
+          currentIndex = (currentIndex + 1) % codeSnippets.length;
+          typeNext();
+        },
+      });
 
       // set obj count to 0
-      obj.count = 0
+      obj.count = 0;
 
       // typing animation
       timeline.to(obj, {
@@ -199,15 +156,18 @@ const keyur = new Developer(
         ease: "none",
         onUpdate: () => {
           if (codeSnippet) {
-            codeSnippet.textContent = text.slice(0, Math.floor(obj.count))
+            codeSnippet.textContent = text.slice(0, Math.floor(obj.count));
           }
-        }
-      })
+        },
+      });
 
       // delay between each code snippet
-      timeline.to({}, {
-        delay: 1.5
-      })
+      timeline.to(
+        {},
+        {
+          delay: 1.5,
+        },
+      );
 
       //deleting animation
       timeline.to(obj, {
@@ -216,36 +176,40 @@ const keyur = new Developer(
         ease: "none",
         onUpdate: () => {
           if (codeSnippet) {
-            codeSnippet.textContent = text.slice(0, Math.floor(obj.count))
+            codeSnippet.textContent = text.slice(0, Math.floor(obj.count));
           }
-        }
-      })
+        },
+      });
 
       // delay after deleting
-      timeline.to({}, {
-        delay: 1
-      })
-    }
+      timeline.to(
+        {},
+        {
+          delay: 1,
+        },
+      );
+    };
 
     // run the function
-    typeNext()
-
+    typeNext();
 
     // kill the animation
     return () => {
       t1.kill();
       gsap.killTweensOf(obj);
     };
-
   }, []);
 
   return (
-    <section className="mt-20 px-3 py-1 font-mono  h-100  ">
-      <div className="flex">
-        <div className="w-[95vw]  mx-auto">
+    <section className="mt-20 px-3 py-1 font-mono  h-100  w-full">
+      <div className="max-w-8xl w-full mx-auto grid  lg:grid-cols-[1fr_0.6fr]">
+        <div className="w-full ">
           {/* Hero Introduction */}
-          <div ref={heroIntroRef} id="hero-intro" className="flex gap-2 text-[16px] text-[#00D4FF]">
-          </div>
+          <div
+            ref={heroIntroRef}
+            id="hero-intro"
+            className="flex gap-2 text-[16px] text-[#00D4FF]"
+          ></div>
 
           <div ref={nameRef} className="text-9xl font-bold mt-4">
             {/* <h1>Keyur</h1> */}
@@ -258,7 +222,10 @@ const keyur = new Developer(
           </span> */}
           </div>
 
-          <div ref={descriptionRef} className="mt-5 text-[#4C586A] w-[80%] opacity-0 ">
+          <div
+            ref={descriptionRef}
+            className="mt-5 text-[#4C586A] lg:w-[80%] opacity-0 "
+          >
             <p>
               I'm a full stack developer who builds web apps end to end: the
               database, the API, and the interface people actually click on.
@@ -285,12 +252,11 @@ const keyur = new Developer(
         </div>
 
         {/* CodeSnippet Component */}
-        <div id="laptop"
-          className="w-[35vw]  mx-auto   h-85  flex p-6 flex-col justify-between opacity-0"
+        <div
+          id="laptop"
+          className="hidden  lg:flex  h-85 p-3 lg:flex-col lg:justify-between opacity-0"
         >
-
-          <div className="overflow-hidden w-[89%] h-88 mx-auto bg-slate-800  flex flex-col gap-3 border border-white">
-
+          <div className="lg:w-[97%] xl:w-[90%] h-88 mx-auto bg-slate-800  flex flex-col gap-3 border border-white">
             <div className="h-3.75 px-1 border-b border-slate-100 flex items-center justify-between">
               {/* circles */}
               <div className="ml-1 flex items-center justify-center gap-1">
@@ -305,16 +271,14 @@ const keyur = new Developer(
               </div>
             </div>
 
-            <div className="px-1">
+            <div className="px-1 http://localhost:3000/">
               {/* code */}
               <pre
                 ref={codeRef}
-                className="font-mono text-[11px] text-[#00D4FF] "
+                className="w-full font-mono text-[11px] text-[#00D4FF] "
               />
             </div>
           </div>
-
-
         </div>
       </div>
     </section>
