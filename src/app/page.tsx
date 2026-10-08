@@ -1,4 +1,5 @@
 import Hero from "@/components/custom/Hero";
+import LetsBuild from "@/components/custom/LetsBuild";
 import Navbar from "@/components/custom/Navbar";
 import Particles from "@/components/custom/Particles";
 import Projects from "@/components/custom/Projects";
@@ -15,6 +16,9 @@ export default function Home() {
       <TechStack />
       <Separator className={`bg-[#4C586A]`} />
       <Projects />
+
+      <Separator className={`bg-[#4C586A]`} />
+      <LetsBuild />
     </>
   );
 }

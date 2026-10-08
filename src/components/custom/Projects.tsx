@@ -95,7 +95,7 @@ const Projects = () => {
         {projects.map((project) => (
           <Card
             key={project.name}
-            className="project-card bg-[#0C0C13] px-6 py-5 mt-10 md:mt-0 border border-[#11111B] font-sans hover:border-[#00D4FF] hover:shadow-[rgba(0,212,255,0.25)_0px_0px_5px_0px,rgba(0,212,255,0.15)_0px_0px_1px_0px] cursor-default"
+            className="project-card bg-[#0C0C13] px-3 md:px-6 py-5 mt-10 md:mt-0 border border-[#11111B] font-sans hover:border-[#00D4FF] hover:shadow-[rgba(0,212,255,0.25)_0px_0px_5px_0px,rgba(0,212,255,0.15)_0px_0px_1px_0px] cursor-default"
           >
             <CardHeader>
               <CardTitle className="text-white font-bold text-2xl">
