@@ -4,9 +4,10 @@ import TechCard from "./TechCard";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
 import { useRef } from "react";
+import { useSelectionAnimation } from "@/hooks/useSelectionAnimation";
 const TechStack = () => {
   const headingRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
   const techSections = [
@@ -40,51 +41,12 @@ const TechStack = () => {
     },
   ];
 
-  useGSAP(
-    () => {
-      if (!headingRef.current || !cardRef.current) return;
-
-      gsap.fromTo(
-        headingRef.current,
-        {
-          opacity: 0,
-          y: 30,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: "power4.in",
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 80%",
-          },
-        },
-      );
-
-      gsap.fromTo(
-        ".tech-card",
-        {
-          opacity: 0,
-          y: 30,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          stagger: 0.3,
-          ease: "power3.in",
-          scrollTrigger: {
-            trigger: cardRef.current,
-            start: "0 80%",
-          },
-        },
-      );
-    },
-    {
-      scope: sectionRef,
-    },
-  );
+  useSelectionAnimation({
+    headingRef,
+    sectionRef,
+    cardRef,
+    cardSelector: ".tech-card",
+  });
 
   return (
     <section ref={sectionRef} className="mb-30">
