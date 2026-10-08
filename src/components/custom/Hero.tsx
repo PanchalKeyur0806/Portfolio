@@ -259,20 +259,20 @@ const keyur = new Developer(
         {/* CodeSnippet Component */}
         <div
           id="laptop"
-          className="mt-10  lg:flex  h-85 py-3 lg:flex-col lg:justify-between opacity-0"
+          className="mt-15 lg:flex  h-85 py-3 lg:flex-col lg:justify-between opacity-0"
         >
-          <div className="lg:w-[97%] xl:w-[90%] h-88 mx-auto bg-slate-800  flex flex-col gap-3 border border-white">
-            <div className="h-3.75 px-1 border-b border-slate-100 flex items-center justify-between">
+          <div className="lg:w-[97%] xl:w-[90%] h-88 mx-auto  flex flex-col gap-3 border-2 border-[#00D4FF]/30 shadow-[0_0_6px_rgba(0,212,255,0.20)] rounded-lg overflow-hidden">
+            <div className="h-3.75 px-1 py-4 bg-[#0D111A] border-b-2 border-[#0D111A] flex items-center justify-between">
               {/* circles */}
               <div className="ml-1 flex items-center justify-center gap-1">
-                <div className="size-2 bg-orange-600 rounded-full"></div>
-                <div className="size-2 bg-white rounded-full"></div>
-                <div className="size-2 bg-green-800 rounded-full"></div>
+                <div className="size-2.5 bg-orange-600 rounded-full"></div>
+                <div className="size-2.5 bg-white rounded-full"></div>
+                <div className="size-2.5 bg-green-800 rounded-full"></div>
               </div>
 
               {/* test */}
               <div className="flex items-center">
-                <span className="text-[10px]">helloworld.js</span>
+                <span className="text-[11px]">helloworld.js</span>
               </div>
             </div>
 
@@ -280,7 +280,7 @@ const keyur = new Developer(
               {/* code */}
               <pre
                 ref={codeRef}
-                className="w-full font-mono text-[11px] text-[#00D4FF] "
+                className="pointer-events-none w-full font-mono text-[11px] text-[#00D4FF]"
               />
             </div>
           </div>
