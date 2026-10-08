@@ -2,7 +2,8 @@
 import { useEffect, useRef } from "react";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
-import gsap from "gsap";
+import { gsap } from "@/lib/gsap";
+import Particles from "./Particles";
 
 const Hero = () => {
   const heroIntroRef = useRef<HTMLDivElement>(null);
@@ -200,9 +201,10 @@ const keyur = new Developer(
   }, []);
 
   return (
-    <section className="mt-20 py-1 font-mono  h-100  w-full">
-      <div className="max-w-8xl w-full mx-auto grid  lg:grid-cols-[1fr_0.6fr]">
-        <div className="w-full ">
+    <section className="relative  py-1 font-mono  h-[90vh]  w-full">
+      <Particles />
+      <div className="relative z-10 max-w-8xl w-full h-full mx-auto grid items-center  lg:grid-cols-[1fr_0.6fr]">
+        <div className="w-full h-full flex justify-center flex-col ">
           {/* Hero Introduction */}
           <div
             ref={heroIntroRef}
@@ -259,9 +261,9 @@ const keyur = new Developer(
         {/* CodeSnippet Component */}
         <div
           id="laptop"
-          className="mt-15 lg:flex  h-85 py-3 lg:flex-col lg:justify-between opacity-0"
+          className="lg:flex  h-85 py-3 lg:flex-col lg:justify-between opacity-0"
         >
-          <div className="lg:w-[97%] xl:w-[90%] h-88 mx-auto  flex flex-col gap-3 border-2 border-[#00D4FF]/30 shadow-[0_0_6px_rgba(0,212,255,0.20)] rounded-lg overflow-hidden">
+          <div className="lg:w-[97%] xl:w-[90%] h-88 mx-auto bg-[#0A0A10]  flex flex-col gap-3 border-2 border-[#00D4FF]/30 shadow-[0_0_6px_rgba(0,212,255,0.20)] rounded-lg overflow-hidden">
             <div className="h-3.75 px-1 py-4 bg-[#0D111A] border-b-2 border-[#0D111A] flex items-center justify-between">
               {/* circles */}
               <div className="ml-1 flex items-center justify-center gap-1">
@@ -276,11 +278,11 @@ const keyur = new Developer(
               </div>
             </div>
 
-            <div className="px-1 http://localhost:3000/">
+            <div className="px-1">
               {/* code */}
               <pre
                 ref={codeRef}
-                className="pointer-events-none w-full font-mono text-[11px] text-[#00D4FF]"
+                className="pointer-events-none w-full  font-mono text-[11px] text-[#00D4FF]"
               />
             </div>
           </div>

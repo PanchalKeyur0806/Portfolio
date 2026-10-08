@@ -1,9 +1,9 @@
 "use client";
-import gsap from "gsap";
+import { gsap } from "@/lib/gsap";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import MobileNavbar from "./MobileNavbar";
 import { Menu } from "lucide-react";
 import { useGSAP } from "@gsap/react";

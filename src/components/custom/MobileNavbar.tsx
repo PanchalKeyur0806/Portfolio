@@ -1,8 +1,9 @@
+"use client";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
-import gsap from "gsap";
+import { gsap } from "@/lib/gsap";
 import { useGSAP } from "@gsap/react";
 
 const MobileNavbar = () => {

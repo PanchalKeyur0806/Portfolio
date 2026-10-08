@@ -1,5 +1,5 @@
 "use client";
-import gsap from "gsap";
+import { gsap } from "@/lib/gsap";
 import React, { useEffect, useRef } from "react";
 
 const Particles = () => {
@@ -10,6 +10,8 @@ const Particles = () => {
 
     const particles = containerRef.current.children;
 
+    const { width, height } = containerRef.current.getBoundingClientRect();
+
     // loop through all particles
     Array.from(particles).forEach((particle) => {
       // get current element
@@ -17,8 +19,8 @@ const Particles = () => {
 
       // set the intital postition of particles
       gsap.set(element, {
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
+        x: Math.random() * width,
+        y: Math.random() * height,
         opacity: Math.random() * 0.5 + 0.1,
         scale: Math.random() * 0.5 + 0.1,
       });
@@ -42,12 +44,16 @@ const Particles = () => {
         ease: "sine.inOut",
       });
     });
+
+    return () => {
+      gsap.killTweensOf(particles);
+    };
   }, []);
 
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 pointer-events-none -z-10 overflow-hidden"
+      className="absolute inset-0 pointer-events-none  overflow-hidden"
     >
       {Array.from({ length: 200 }).map((_, i) => (
         <div
