@@ -1,3 +1,5 @@
+import AnimateSeparator from "@/components/custom/AnimateSeparator";
+import Footer from "@/components/custom/Footer";
 import Hero from "@/components/custom/Hero";
 import LetsBuild from "@/components/custom/LetsBuild";
 import Navbar from "@/components/custom/Navbar";
@@ -10,15 +12,21 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <Separator className={`bg-[#4C586A]`} />
+      <AnimateSeparator />
+
       <Hero />
-      <Separator className={`bg-[#4C586A]`} />
+      <AnimateSeparator />
+
       <TechStack />
-      <Separator className={`bg-[#4C586A]`} />
+      <AnimateSeparator />
+
       <Projects />
 
-      <Separator className={`bg-[#4C586A]`} />
+      <AnimateSeparator />
       <LetsBuild />
+
+      <AnimateSeparator className={`bg-[#4C586A] w-full mt-10`} />
+      <Footer />
     </>
   );
 }

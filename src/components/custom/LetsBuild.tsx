@@ -76,7 +76,7 @@ const LetsBuild = () => {
         <div>
           <Button
             className={
-              "px-10 py-6 bg-[#00D4FF] text-black rounded hover:bg-[#00D4FF] cursor-default text-[16px] w-75 h-18.75"
+              "px-10 py-6 bg-[#00D4FF] text-black rounded hover:bg-[#00D4FF] cursor-default text-[16px] w-55 md:w-70 h-18.75"
             }
           >
             Get In Touch

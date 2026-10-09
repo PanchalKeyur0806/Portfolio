@@ -8,6 +8,7 @@ import { Button } from "@base-ui/react";
 import { ArrowRight } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
+import { FaGithub } from "react-icons/fa";
 
 const Projects = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -85,7 +86,7 @@ const Projects = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="mt-20 mb-30">
+    <section ref={sectionRef} className="px-3 sm:px-10 mt-20 mb-30">
       <Heading heading="Projects" ref={headingRef} />
 
       <div
@@ -119,7 +120,12 @@ const Projects = () => {
               </div>
 
               <div className="mt-15 text-[#3D4B64] hover:text-[#00D4FF]">
-                <Link href={project.links}>GitHub</Link>
+                <Link href={project.links} className="flex items-center">
+                  <span className="flex items-center gap-2">
+                    <FaGithub size={18} />
+                    <span>GitHub</span>
+                  </span>
+                </Link>
               </div>
             </CardContent>
           </Card>

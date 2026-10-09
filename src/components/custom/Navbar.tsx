@@ -61,7 +61,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="relative z-50">
+    <header className="px-3 sm:px-10 relative z-50">
       <nav
         ref={navRef}
         id="navigations"

@@ -201,7 +201,7 @@ const keyur = new Developer(
   }, []);
 
   return (
-    <section className="relative  py-1 font-mono  h-[90vh]  w-full">
+    <section className="px-3 sm:px-10 relative  py-1 font-mono  h-[90vh]  w-full">
       <Particles />
       <div className="relative z-10 max-w-8xl w-full h-full mx-auto grid items-center  lg:grid-cols-[1fr_0.6fr]">
         <div className="w-full h-full flex justify-center flex-col ">

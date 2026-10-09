@@ -49,7 +49,7 @@ const TechStack = () => {
   });
 
   return (
-    <section ref={sectionRef} className="mb-30">
+    <section ref={sectionRef} className="px-3 sm:px-10 mb-30">
       <Heading heading="Tech Stack" ref={headingRef} />
 
       <div
