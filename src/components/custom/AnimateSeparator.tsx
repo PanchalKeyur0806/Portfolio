@@ -8,28 +8,33 @@ import { useGSAP } from "@gsap/react";
 const AnimateSeparator = ({ className }: { className?: string }) => {
   const selectionRef = useRef<HTMLElement>(null);
 
-  useGSAP(() => {
-    const element = selectionRef.current;
-    if (!element) return;
+  useGSAP(
+    () => {
+      const element = selectionRef.current;
+      if (!element) return;
 
-    gsap.fromTo(
-      element,
-      {
-        scaleX: 0,
-        opacity: 0,
-        transformOrigin: "left center",
-      },
-      {
-        scaleX: 1,
-        opacity: 1,
-        duration: 1.2,
-        scrollTrigger: {
-          trigger: element,
-          start: "top 80%",
+      gsap.fromTo(
+        element,
+        {
+          scaleX: 0,
+          opacity: 0,
+          transformOrigin: "left center",
         },
-      },
-    );
-  });
+        {
+          scaleX: 1,
+          opacity: 1,
+          duration: 1.2,
+          scrollTrigger: {
+            trigger: element,
+            start: "top 80%",
+          },
+        },
+      );
+    },
+    {
+      scope: selectionRef,
+    },
+  );
 
   return (
     <section ref={selectionRef}>
