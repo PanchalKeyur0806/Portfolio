@@ -9,6 +9,22 @@ const LetsBuild = () => {
   const headingRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
 
+  // contact functionality
+  const gmail = "panchalkeyur694@gmail.com";
+  const subject = encodeURIComponent("Regarding job opportunities");
+  const body = encodeURIComponent(
+    "Hi, I visited your portfolio and would like to connect.",
+  );
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(gmail)}&su=${subject}&body=${body}`;
+
+  const openGmail = () => {
+    window.open(
+      gmailUrl,
+      "gmailWindow",
+      "width=600,height=650,left=200,top=100,resizable=yes,scrollbars=yes",
+    );
+  };
+
   useGSAP(
     () => {
       if (!headingRef.current || !buttonRef.current) return;
@@ -75,6 +91,7 @@ const LetsBuild = () => {
       <div ref={buttonRef}>
         <div>
           <Button
+            onClick={openGmail}
             className={
               "px-10 py-6 bg-[#00D4FF] text-black rounded hover:bg-[#00D4FF] cursor-default text-[16px] w-55 md:w-70 h-18.75"
             }

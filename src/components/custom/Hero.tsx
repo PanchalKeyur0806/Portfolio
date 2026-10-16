@@ -46,6 +46,22 @@ const keyur = new Developer(
 );`,
   ];
 
+  // contact functionality
+  const gmail = "panchalkeyur694@gmail.com";
+  const subject = encodeURIComponent("Regarding job opportunities");
+  const body = encodeURIComponent(
+    "Hi, I visited your portfolio and would like to connect.",
+  );
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(gmail)}&su=${subject}&body=${body}`;
+
+  const openGmail = () => {
+    window.open(
+      gmailUrl,
+      "gmailWindow",
+      "width=600,height=650,left=200,top=100,resizable=yes,scrollbars=yes",
+    );
+  };
+
   useEffect(() => {
     // get all the elements
     const heroIntro = heroIntroRef.current;
@@ -251,9 +267,12 @@ const keyur = new Developer(
             </Button>
 
             <Button
+              onClick={openGmail}
               className={`  px-8 py-6 border-white rounded-none  text-white bg-[#0A0A10] hover:bg-[#0A0A10] cursor-pointer`}
             >
+              {/* <a href={gmailUrl} target="_self"> */}
               Get In Touch
+              {/* </a> */}
             </Button>
           </div>
         </div>

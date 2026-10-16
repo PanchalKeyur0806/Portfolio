@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/custom/Navbar";
+import Footer from "@/components/custom/Footer";
 
 // Primary Body Font
 const inter = Inter({
@@ -27,7 +29,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#0A0A10] text-white">{children}</body>
+      <body className="min-h-full bg-[#0A0A10] text-white">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
