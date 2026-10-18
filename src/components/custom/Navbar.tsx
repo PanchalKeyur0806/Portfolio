@@ -69,8 +69,10 @@ const Navbar = () => {
         className="h-15 flex justify-between items-center font-sans"
       >
         <div id="Text" className="font-bold text-xl px-1 opacity-0">
+          <Link href="/">
           <span className="text-[#00D4FF]">keyur</span>
           <span>.dev</span>
+          </Link>
         </div>
 
         <div className="flex items-center">

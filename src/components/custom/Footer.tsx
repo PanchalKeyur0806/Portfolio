@@ -23,7 +23,7 @@ const Footer = () => {
           ease: "power2.in",
           scrollTrigger: {
             trigger: footerRef.current,
-            start: "top 90%",
+            start: "top 80%",
           },
         },
       );
