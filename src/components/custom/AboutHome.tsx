@@ -1,0 +1,49 @@
+import React from "react";
+import { Button } from "../ui/button";
+import { FaDownload } from "react-icons/fa";
+
+const AboutHome = () => {
+  return (
+    <section className="font-sans px-3 py-5 sm:px-10 sm:py-8 ">
+      <div className="mt-25">
+        <h1 className="text-7xl font-bold">Keyur</h1>
+      </div>
+
+      <div className="mt-10 flex items-center gap-5">
+        <div className="flex items-center gap-3 border border-[#00d4ff] px-3 py-2 rounded cursor-pointer">
+          <span className="size-3 bg-[#00D4FF] rounded-full"></span>
+          <span className="text-[#00D4FF]">Open to work</span>
+        </div>
+        <div className="flex items-center gap-3 border border-[#858597] px-3 py-2 rounded cursor-pointer">
+          <span></span>
+          <span className="text-[#858597]">Ahmedabad, India</span>
+        </div>
+      </div>
+
+      <div className="mt-10 w-full md:w-2/3 lg:w-1/2 text-xl text-[#858597]">
+        <p>
+          I'm a Full-Stack Developer who enjoys building things that are fast,
+          reliable, and well-crafted. I care about the details — clean APIs,
+          snappy UIs, and code that's easy to reason about.
+        </p>
+      </div>
+
+      <div className="mt-10 w-full md:w-2/3 lg:w-1/2 text-xl text-[#858597]">
+        <p>
+          I've worked across the stack — from designing database schemas to
+          shipping pixel-perfect React interfaces. I'm comfortable owning a
+          feature end-to-end.
+        </p>
+      </div>
+
+      <div className="mt-10">
+        <Button className="bg-[#00D4FF] text-black px-10 py-6 cursor-pointer rounded text-[18px] hover:bg-[#00d4ff] flex items-center gap-2">
+          <FaDownload />
+          <span>Download Resume</span>
+        </Button>
+      </div>
+    </section>
+  );
+};
+
+export default AboutHome;
