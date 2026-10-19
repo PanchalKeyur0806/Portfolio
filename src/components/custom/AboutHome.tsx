@@ -1,10 +1,51 @@
-import React from "react";
+"use client";
+import { useGSAP } from "@gsap/react";
 import { Button } from "../ui/button";
 import { FaDownload } from "react-icons/fa";
+import { useRef } from "react";
+import { gsap } from "@/lib/gsap";
 
 const AboutHome = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return;
+
+      // get all the elements
+      const elements = gsap.utils.toArray<HTMLElement>(
+        sectionRef.current.children,
+      );
+
+      // create timeline with 0.4 second delay
+      const timeline1 = gsap.timeline({ delay: 0.4 });
+
+      // perform animation on each and every elements
+      elements.forEach((elem) => {
+        timeline1.fromTo(
+          elem,
+          {
+            opacity: 0,
+            x: -30,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.4,
+            scrollTrigger: {
+              trigger: elem,
+              start: "top 80%",
+            },
+          },
+        );
+      });
+    },
+    {
+      scope: sectionRef,
+    },
+  );
+
   return (
-    <section className="font-sans px-3 py-5 sm:px-10 sm:py-8 ">
+    <section ref={sectionRef} className="font-sans px-3 py-5 sm:px-10 sm:py-8 ">
       <div className="mt-25">
         <h1 className="text-7xl font-bold">Keyur</h1>
       </div>
