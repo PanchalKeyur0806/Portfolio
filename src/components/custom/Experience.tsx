@@ -68,7 +68,10 @@ const Experience = () => {
 
       <div ref={cardRef} className="mt-20">
         {experience.map((exp) => (
-          <div key={exp.role} className="px-3 py-2 rounded-md mt-7 sm:mt-15">
+          <div
+            key={exp.role}
+            className="px-3 sm:px-6 sm:py-5 py-2 rounded-md mt-7 sm:mt-15"
+          >
             <div>
               <div className="flex justify-between items-center">
                 <h4 className="text-xl font-bold">{exp.role}</h4>

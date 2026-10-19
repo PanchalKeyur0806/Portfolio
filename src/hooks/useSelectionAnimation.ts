@@ -1,21 +1,25 @@
 import { gsap } from "@/lib/gsap";
 import { useGSAP } from "@gsap/react";
 import React from "react";
- 
 
 type useSelectionAnimationProps = {
-    sectionRef: React.RefObject<HTMLElement | null>;
-    headingRef: React.RefObject<HTMLDivElement | null>;
-    cardRef: React.RefObject<HTMLDivElement | null>;
-    cardSelector: string
-}
+  sectionRef: React.RefObject<HTMLElement | null>;
+  headingRef: React.RefObject<HTMLDivElement | null>;
+  cardRef: React.RefObject<HTMLDivElement | null>;
+  cardSelector: string;
+};
 
-export const useSelectionAnimation = ({sectionRef, headingRef, cardRef, cardSelector}:useSelectionAnimationProps)=> {
-     useGSAP(
+export const useSelectionAnimation = ({
+  sectionRef,
+  headingRef,
+  cardRef,
+  cardSelector,
+}: useSelectionAnimationProps) => {
+  useGSAP(
     () => {
-      if (!headingRef.current || !cardRef.current ) return;
+      if (!headingRef.current || !cardRef.current) return;
 
-    //   Heading Animation
+      //   Heading Animation
       gsap.fromTo(
         headingRef.current,
         {
@@ -30,11 +34,12 @@ export const useSelectionAnimation = ({sectionRef, headingRef, cardRef, cardSele
           scrollTrigger: {
             trigger: headingRef.current,
             start: "top 70%",
+            toggleActions: "play none none reverse",
           },
         },
       );
 
-    //   Card Animation
+      //   Card Animation
       gsap.fromTo(
         cardSelector,
         {
@@ -50,6 +55,7 @@ export const useSelectionAnimation = ({sectionRef, headingRef, cardRef, cardSele
           scrollTrigger: {
             trigger: cardRef.current,
             start: "0 70%",
+            toggleActions: "play none none reverse",
           },
         },
       );
@@ -58,4 +64,4 @@ export const useSelectionAnimation = ({sectionRef, headingRef, cardRef, cardSele
       scope: sectionRef,
     },
   );
-}
+};
