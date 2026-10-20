@@ -75,6 +75,10 @@ jobs:
         run: npm install
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+          NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${{secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID}}
+          NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${{secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID}}
+          NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: ${{secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY}}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
