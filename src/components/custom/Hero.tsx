@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 import Particles from "./Particles";
+import Link from "next/link";
 
 const Hero = () => {
   const heroIntroRef = useRef<HTMLDivElement>(null);
@@ -46,22 +47,6 @@ const keyur = new Developer(
 );`,
   ];
 
-  // contact functionality
-  const gmail = "panchalkeyur694@gmail.com";
-  const subject = encodeURIComponent("Regarding job opportunities");
-  const body = encodeURIComponent(
-    "Hi, I visited your portfolio and would like to connect.",
-  );
-  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(gmail)}&su=${subject}&body=${body}`;
-
-  const openGmail = () => {
-    window.open(
-      gmailUrl,
-      "gmailWindow",
-      "width=600,height=650,left=200,top=100,resizable=yes,scrollbars=yes",
-    );
-  };
-
   useEffect(() => {
     // get all the elements
     const heroIntro = heroIntroRef.current;
@@ -82,12 +67,19 @@ const keyur = new Developer(
     const roleText: string = "Full-Stack Developer";
     const obj = { count: 0 };
 
+    // Disable scrolling
+    document.body.style.overflow = "hidden";
+
     gsap.set("#laptop", {
       x: 40,
     });
 
     // create a timeline
-    const t1 = gsap.timeline();
+    const t1 = gsap.timeline({
+      onComplete: () => {
+        document.body.style.overflow = "";
+      },
+    });
 
     // hero intro text typing animation
     t1.to(obj, {
@@ -213,11 +205,13 @@ const keyur = new Developer(
     return () => {
       t1.kill();
       gsap.killTweensOf(obj);
+
+      document.body.style.overflow = "";
     };
   }, []);
 
   return (
-    <section className="px-3 sm:px-10 relative  py-1 font-mono  h-[90vh]  w-full">
+    <section className="px-3 mt-20 sm:mt-0 sm:px-10 relative  py-1 font-mono  h-[90vh]  w-full">
       <Particles />
       <div className="relative z-10 max-w-8xl w-full h-full mx-auto grid items-center  lg:grid-cols-[1fr_0.6fr]">
         <div className="w-full h-full flex justify-center flex-col ">
@@ -267,12 +261,9 @@ const keyur = new Developer(
             </Button>
 
             <Button
-              onClick={openGmail}
               className={`  px-8 py-6 border-white rounded-none  text-white bg-[#0A0A10] hover:bg-[#0A0A10] cursor-pointer`}
             >
-              {/* <a href={gmailUrl} target="_self"> */}
-              Get In Touch
-              {/* </a> */}
+              <Link href={"/contact"}>Get In Touch</Link>
             </Button>
           </div>
         </div>

@@ -78,8 +78,7 @@ const ContactForm = () => {
             duration: 0.4,
             scrollTrigger: {
               trigger: elem,
-              start: "top 60%",
-              toggleActions: "play none none reverse",
+              start: "top 75%",
             },
           },
         );
@@ -98,7 +97,6 @@ const ContactForm = () => {
           scrollTrigger: {
             trigger: formRef.current,
             start: "top 60%",
-            toggleActions: "play none none reverse",
           },
         },
       );

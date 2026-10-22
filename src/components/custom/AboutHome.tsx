@@ -78,7 +78,17 @@ const AboutHome = () => {
       </div>
 
       <div className="mt-10">
-        <Button className="bg-[#00D4FF] text-black px-10 py-6 cursor-pointer rounded text-[18px] hover:bg-[#00d4ff] flex items-center gap-2">
+        <Button
+          onClick={() => {
+            const link = document.createElement("a");
+            link.href = "/Keyur Panchal Resume.pdf";
+            link.download = "Keyur Panchal Resume.pdf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }}
+          className="bg-[#00D4FF] text-black px-10 py-6 cursor-pointer rounded text-[18px] hover:bg-[#00d4ff] flex items-center gap-2"
+        >
           <FaDownload />
           <span>Download Resume</span>
         </Button>

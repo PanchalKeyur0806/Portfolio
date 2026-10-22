@@ -1,11 +1,14 @@
 const projects = [
   {
-    name: "Digital Product",
-    tag: "FEATURED",
+name: "BookStore API",    
+tag: "FEATURED",
     description1:
-      "A digital product published on Gumroad, showcasing my work in creating and presenting digital resources.",
+  "A robust and scalable BookStore API designed to deliver seamless book management, secure user authentication, and efficient data handling through a well-structured backend architecture.",
+
     description2:
-      "Explore the product page to learn more about the offering, its details, and availability.",
+  "Built with a focus on clean code, secure API development, and maintainability, this project demonstrates practical backend engineering skills and the implementation of modern server-side technologies.",
+
+
     technology: [
       "Node.js",
       "Express.js",
@@ -28,9 +31,11 @@ const projects = [
       "Docker",
     ],
     links: {
-      name: "View Product",
-      url: "https://keyurdev.gumroad.com/l/rovbeg?layout=profile",
-      type: "product",
+          name: "View on GitHub",
+
+      url: "https://github.com/PanchalKeyur0806/BookStore",
+      type: "github",
+
     },
   },
 
@@ -99,6 +104,74 @@ const projects = [
       type: "github",
     },
   },
+  {
+  name: "Personal Portfolio",
+  tag: "FEATURED",
+  description1:
+    "A personal portfolio website designed to showcase my projects, technical expertise, and development journey through a clean, modern, and engaging user experience.",
+  description2:
+    "Built to establish my professional identity, highlight my work, and provide a central place for recruiters and collaborators to explore my skills, projects, and achievements.",
+  technology: [
+    "Next.js",
+    "Tailwind CSS",
+    "Shadcn/Ui",
+    "GSAP",
+    "React.js"
+
+  ],
+  links: {
+    name: "View on GitHub",
+    url: "https://github.com/PanchalKeyur0806/Portfolio",
+    type: "github",
+  },
+},
+
+{
+  name: "FindJob REST API",
+  tag: "OPEN SOURCE",
+  description1:
+    "A job portal backend API designed to simplify job discovery and recruitment by providing structured endpoints for managing job listings, user accounts, and job-related operations.",
+  description2:
+    "Developed with a focus on secure authentication, efficient data management, and scalable backend architecture, this project showcases practical REST API development and server-side engineering skills.",
+  technology: [
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Mongoose",
+    "JWT",
+    "Bcrypt",
+    "REST API",
+    "MVC Architecture",
+  ],
+  links: {
+    name: "View on GitHub",
+    url: "https://github.com/PanchalKeyur0806/Findjob-Rest-Api",
+    type: "github",
+  },
+},
+
+
+{
+  name: "FindJob Frontend",
+  tag: "OPEN SOURCE",
+  description1:
+    "A modern job portal frontend designed to connect job seekers with relevant opportunities through an intuitive interface, seamless navigation, and a user-friendly job search experience.",
+  description2:
+    "Built with a focus on responsive design, usability, and smooth user interactions, this project showcases frontend development skills by bringing essential job portal features to life.",
+  technology: [
+    "React.js",
+    "JavaScript",
+    "HTML5",
+    "CSS3",
+    "REST API Integration",
+    "Responsive Design",
+  ],
+  links: {
+    name: "View on GitHub",
+    url: "https://github.com/PanchalKeyur0806/Findjob-Frontend-Code",
+    type: "github",
+  },
+},
 ];
 
 export default projects;

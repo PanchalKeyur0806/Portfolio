@@ -23,7 +23,7 @@ const Footer = () => {
           ease: "power2.in",
           scrollTrigger: {
             trigger: footerRef.current,
-            start: "top 80%",
+            start: "top 95%",
           },
         },
       );
@@ -43,8 +43,10 @@ const Footer = () => {
           {/* name */}
           <div>
             <p className="font-bold text-xl">
-              <span className="text-[#00d4ff]">keyur</span>
-              <span>.dev</span>
+               <Link href="/">
+            <span className="text-[#00D4FF]">keyur</span>
+            <span>.dev</span>
+          </Link>
             </p>
           </div>
           {/* links */}

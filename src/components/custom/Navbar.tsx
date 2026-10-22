@@ -18,6 +18,10 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeNavbar = () => {
+    setIsOpen(false);
+  };
+
   useGSAP(
     () => {
       const t1 = gsap.timeline();
@@ -61,7 +65,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="px-3 sm:px-10 relative z-50">
+    <header className="px-3 sm:px-10 w-full z-50 fixed bg-[#0A0A10] border-b border-[#858597]">
       <nav
         ref={navRef}
         id="navigations"
@@ -70,8 +74,8 @@ const Navbar = () => {
       >
         <div id="Text" className="font-bold text-xl px-1 opacity-0">
           <Link href="/">
-          <span className="text-[#00D4FF]">keyur</span>
-          <span>.dev</span>
+            <span className="text-[#00D4FF]">keyur</span>
+            <span>.dev</span>
           </Link>
         </div>
 
@@ -86,21 +90,32 @@ const Navbar = () => {
             </Link>
             <Link
               href="/projects"
-              className="nav-link mx-5 font-medium opacity-0"
+              className={`nav-link opacity-0 mx-5 font-medium ${pathname === "/projects" ? "text-[#00D4FF]" : ""}`}
             >
               Projects
             </Link>
-            <Link href="/about" className="nav-link mx-5 font-medium opacity-0">
+            <Link
+              href="/about"
+              className={`nav-link opacity-0 mx-5 font-medium ${pathname === "/about" ? "text-[#00D4FF]" : ""}`}
+            >
               About
             </Link>
             <Link
               href="/contact"
-              className="nav-link mx-5 font-medium opacity-0"
+              className={`nav-link opacity-0 mx-5 font-medium ${pathname === "/contact" ? "text-[#00D4FF]" : ""}`}
             >
               Contact
             </Link>
 
             <Button
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "/Keyur Panchal Resume.pdf";
+                link.download = "Keyur Panchal Resume.pdf";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
               className={`nav-link opacity-0 mx-3 py-4 px-5 border-2 border-[#00D4FF] text-[#00D4FF] rounded-none cursor-pointer `}
             >
               Resume
@@ -113,7 +128,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {isOpen && <MobileNavbar />}
+      {isOpen && <MobileNavbar onClose={closeNavbar} />}
     </header>
   );
 };

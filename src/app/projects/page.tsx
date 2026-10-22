@@ -55,7 +55,6 @@ const Projects = () => {
             scrollTrigger: {
               trigger: card,
               start: "top 80%",
-              toggleActions: "play none none reverse",
             },
           },
         );
@@ -65,6 +64,8 @@ const Projects = () => {
       scope: sectionRef,
     },
   );
+
+  const filteredProjects = active === "ALL" ? projects : projects.filter((project) => project.tag === active)
 
   return (
     <main className="min-h-screen w-full" ref={sectionRef}>
@@ -83,15 +84,15 @@ const Projects = () => {
       <ProjectSection
         active={active}
         setActive={setActive}
-        length={projects.length}
+        length={filteredProjects.length}
       />
 
       {/* Project Lists */}
       <section
         ref={projectsRef}
-        className="sm:px-10 px-3 mt-30 mb-20 pb-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 border-b  border-[#4C586A] "
+        className="sm:px-10 px-3 mt-30 pb-20 pb-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 border-b  border-[#4C586A] "
       >
-        {projects.map((project) => (
+        {filteredProjects.map((project) => (
           <Card
             key={project.name}
             className="project-card bg-[#0C0C13] px-3 md:px-6 py-5 mt-10 md:mt-0 border border-[#11111B] font-sans hover:border-[#00D4FF] hover:shadow-[rgba(0,212,255,0.25)_0px_0px_5px_0px,rgba(0,212,255,0.15)_0px_0px_1px_0px] cursor-default"

@@ -3,27 +3,12 @@ import React, { useRef } from "react";
 import { Button } from "../ui/button";
 import { gsap } from "@/lib/gsap";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
 
 const LetsBuild = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
-
-  // contact functionality
-  const gmail = "panchalkeyur694@gmail.com";
-  const subject = encodeURIComponent("Regarding job opportunities");
-  const body = encodeURIComponent(
-    "Hi, I visited your portfolio and would like to connect.",
-  );
-  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(gmail)}&su=${subject}&body=${body}`;
-
-  const openGmail = () => {
-    window.open(
-      gmailUrl,
-      "gmailWindow",
-      "width=600,height=650,left=200,top=100,resizable=yes,scrollbars=yes",
-    );
-  };
 
   useGSAP(
     () => {
@@ -90,14 +75,15 @@ const LetsBuild = () => {
 
       <div ref={buttonRef}>
         <div>
+          <Link href={"/contact"}>
           <Button
-            onClick={openGmail}
             className={
               "px-10 py-6 bg-[#00D4FF] text-black rounded hover:bg-[#00D4FF] cursor-default text-[16px] w-55 md:w-70 h-18.75"
             }
           >
             Get In Touch
           </Button>
+          </Link>
         </div>
         <div className="mt-1">
           <p className="text-[#3D4B64] text-[13px] text-center">
